@@ -1,4 +1,6 @@
 ﻿// ask for input
+using System.Reflection.PortableExecutable;
+
 Console.WriteLine("Enter 1 to create data file.");
 Console.WriteLine("Enter 2 to parse data.");
 Console.WriteLine("Enter anything else to quit.");
@@ -46,5 +48,48 @@ if (resp == "1")
 else if (resp == "2")
 {
     // TODO: parse data file
+    //Minimal Goal:
+// Week of Sep, 06, 2020
+//  Su Mo Tu We Th Fr Sa
+//  -- -- -- -- -- -- --
+//   7  4 10  6  9 11  7
+
+StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries;
+string[] lines = File.ReadAllLines("data.txt"); 
+
+foreach (string line in lines)
+{
+    string[] parts = line.Split(',', options);
+    DateTime date = Convert.ToDateTime(parts[0]);
+    string[] hours = parts[1].Split('|', options);
+    int[] hoursInt = Array.ConvertAll(hours, int.Parse);
+    //get total hours
+int total = hoursInt.Sum();
+//get average hours
+double average = hoursInt.Average();
+
+
+    Console.WriteLine("Week of {0:MMM}, {0:dd}, {0:yyyy}", date);
+    Console.WriteLine(" Su Mo Tu We Th Fr Sa Tot Avg");
+    Console.WriteLine(" -- -- -- -- -- -- -- -- --");
+    Console.WriteLine($" {hoursInt[0],2} {hoursInt[1],2} {hoursInt[2],2} {hoursInt[3],2} {hoursInt[4],2} {hoursInt[5],2} {hoursInt[6],2} {total} {average,2}");
+    Console.WriteLine();
+
+}
+
+//Extra Credit:
+// Double Secret Extra Credit:
+// Week of Sep, 06, 2020
+//  Su Mo Tu We Th Fr Sa Tot AvgS
+//  -- -- -- -- -- -- -- --- ---
+//   7  4 10  6  9 11  7  48 6.9
+
+// Week of Sep, 13, 2020
+//  Su Mo Tu We Th Fr Sa Tot Avg
+//  -- -- -- -- -- -- -- --- ---
+//   7  4 10  6  9 11  7  64 9.1
+
+
+
 
 }
