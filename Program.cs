@@ -46,20 +46,22 @@ if (resp == "1")
     sw.Close();
 }
 else if (resp == "2")
-{
-
-    
+{   //reading file
     string[] lines = File.ReadAllLines("data.txt");
-
+//looping over file
     foreach (string line in lines)
     {
+        //first split date,hours into array of 2
         string[] parts = line.Split(',');
+        //setting varible for the date
         DateTime date = Convert.ToDateTime(parts[0]);
+        //second split hours into array of 7
         string[] hours = parts[1].Split('|');
+        //converting string array to int array
         int[] hoursInt = Array.ConvertAll(hours, int.Parse);
-
+        //summing the total hours
         int total = hoursInt.Sum();
-
+        //calculating the average hours
         double average = hoursInt.Average();
 
 
