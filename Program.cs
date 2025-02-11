@@ -67,8 +67,8 @@ else if (resp == "2")
 
         Console.WriteLine("Week of {0:MMM}, {0:dd}, {0:yyyy}", date);
         Console.WriteLine(" Su Mo Tu We Th Fr Sa Tot Avg");
-        Console.WriteLine(" -- -- -- -- -- -- -- -- --");
-        Console.WriteLine($" {hoursInt[0],2} {hoursInt[1],2} {hoursInt[2],2} {hoursInt[3],2} {hoursInt[4],2} {hoursInt[5],2} {hoursInt[6],2} {total} {average,4:F1}");
+        Console.WriteLine(" -- -- -- -- -- -- -- --- ---");
+        Console.WriteLine($" {hoursInt[0],2} {hoursInt[1],2} {hoursInt[2],2} {hoursInt[3],2} {hoursInt[4],2} {hoursInt[5],2} {hoursInt[6],2} {total,3} {average,3:F1}");
         Console.WriteLine();
 
     }
